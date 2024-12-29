@@ -1,72 +1,100 @@
-# Digi Solo - Agency Website
+# Digi Solo - Healthcare Professional Web Solutions
 
-A modern, responsive website for Digi Solo agency built with React and Tailwind CSS.
+A modern, responsive website for Digi Solo, specializing in creating digital solutions for healthcare professionals, particularly dentists, veterinarians, and pet care businesses.
 
-## Customization Guide
+![Digi Solo Website](https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800)
 
-### 1. Content Updates
+## Features
 
-#### Hero Section
-- Update the main heading and subheading in the header section
-- Modify the CTA button text and link
+- 🎨 Modern, responsive design
+- 📱 Mobile-first approach
+- 🚀 Fast loading with Vite
+- 💅 Styled with Tailwind CSS
+- 🔍 SEO optimized
+- 📬 Integrated contact form with WhatsApp and Email support
 
-#### About Section
-- Update the company description in the About section
-- Add more paragraphs or content as needed
+## Tech Stack
 
-#### Services Section
-- Modify the service cards
-- Add or remove services as needed
-- Update icons by importing different ones from `lucide-react`
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React Icons
 
-#### Contact Section
-- Update contact information (email, phone, social media links)
-- Modify the contact form fields if needed
+## Getting Started
 
-### 2. Styling Updates
+### Prerequisites
 
-The website uses Tailwind CSS for styling. To modify the look:
+- Node.js (v18 or higher)
+- npm or yarn
 
-- Colors: Update the gradient colors in the header and sections
-- Spacing: Modify padding and margin using Tailwind classes
-- Typography: Change font sizes and weights using Tailwind classes
-- Components: Adjust the design of cards, buttons, and forms
+### Installation
 
-### 3. Development
-
+1. Clone the repository:
 ```bash
-# Install dependencies
+git clone <repository-url>
+cd digi-solo
+```
+
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Start development server
+3. Start the development server:
+```bash
 npm run dev
+```
 
-# Build for production
+4. Build for production:
+```bash
 npm run build
 ```
 
-### 4. Deployment
-
-The site can be easily deployed to Netlify:
-
-1. Push your code to a Git repository
-2. Connect your repository to Netlify
-3. Configure build settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-
-## File Structure
+## Project Structure
 
 ```
 src/
-├── App.tsx        # Main application component
-├── index.css      # Global styles
-└── main.tsx       # Application entry point
+├── components/         # React components
+├── config/            # Configuration files
+├── hooks/             # Custom React hooks
+├── utils/             # Utility functions
+└── main.tsx          # Application entry point
 ```
 
-## Technologies Used
+## Key Components
 
-- React
-- TypeScript
-- Tailwind CSS
-- Lucide React (for icons)
+- `Header`: Navigation and branding
+- `Hero`: Landing section with main call-to-action
+- `About`: Company information and values
+- `Services`: Service offerings
+- `Contact`: Contact form with direct messaging integration
+- `Footer`: Site footer with additional links and information
+
+## Contact Form Integration
+
+The contact form integrates with:
+- WhatsApp: Direct messaging to +918207234470
+- Email: Sends to resabvai71@gmail.com
+
+## Deployment
+
+The site is deployed on Netlify. Visit [Digi Solo](https://cheery-gecko-20c22b.netlify.app) to see it live.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Resab Chettri - [@yabakuu](https://www.instagram.com/yabakuu/profilecard/?igsh=YjQzeTh1N25uN2Jh)
+
+Project Link: [https://cheery-gecko-20c22b.netlify.app](https://cheery-gecko-20c22b.netlify.app)

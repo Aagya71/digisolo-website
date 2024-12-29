@@ -1,0 +1,5 @@
+export const CONTACT_CONFIG = {
+  PHONE_NUMBER: '+918207234470',
+  BUSINESS_EMAIL: 'resabvai71@gmail.com',
+  WHATSAPP_NUMBER: '+918207234470'
+} as const;
