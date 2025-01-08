@@ -1,43 +1,38 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
-export default function Hero() {
+const Hero = () => {
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(
+      "Hi, I'm interested in Digi Solo's dental website services.\n\nName:\nNumber:\nEmail:\nDental Practice Name:"
+    );
+    window.open(`https://wa.me/918207234470?text=${message}`, '_blank');
+  };
+
   return (
-    <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-blue-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-          <div className="flex-1 space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-              Creating Digital Excellence for Healthcare Professionals
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600">
-              Specialized web solutions for dentists, veterinarians, and pet care businesses. Transform your online presence with websites that attract and engage your ideal clients.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors text-lg"
-              >
-                Get a Free Quote
-                <ArrowRight size={20} />
-              </a>
-              <a 
-                href="#services" 
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-colors text-lg"
-              >
-                View Our Services
-              </a>
-            </div>
+    <div className="relative min-h-screen bg-black flex items-center">
+      <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-90" />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-3xl">
+          <h1 className="text-6xl font-bold text-white mb-6">
+            We develop <span className="text-[#F8A5C2]">sales-boosting</span> websites for dental practices.
+          </h1>
+          <p className="text-xl text-gray-300 mb-8">
+            We create websites that bring in visitors, turn them into patients, and help your dental practice grow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={handleWhatsApp}
+              className="flex items-center justify-center px-8 py-4 bg-[#F8A5C2] hover:bg-[#F6E58D] text-black rounded-lg transition-colors duration-300 font-medium"
+            >
+              Book a 15-min call
+            </button>
           </div>
-          <div className="flex-1">
-            <img 
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800"
-              alt="Modern dental clinic" 
-              className="rounded-2xl shadow-2xl"
-            />
-          </div>
+          <p className="mt-4 text-gray-400">Fixed Prices. No long-term contracts.</p>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Hero;
