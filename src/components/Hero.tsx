@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const Hero = () => {
   const handleWhatsApp = () => {
@@ -23,9 +23,9 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={handleWhatsApp}
-              className="flex items-center justify-center px-8 py-4 bg-[#F8A5C2] hover:bg-[#F6E58D] text-black rounded-lg transition-colors duration-300 font-medium"
+              className="hvr-float-shadow flex items-center justify-center px-8 py-4 bg-[#F8A5C2] hover:bg-[#F6E58D] text-black rounded-lg transition-colors duration-300 font-medium"
             >
-              Book a 15-min call
+              Book an appointment
             </button>
           </div>
           <p className="mt-4 text-gray-400">Fixed Prices. No long-term contracts.</p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Instagram, Mail, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-2xl font-bold text-white">
+          <a href="#" className="text-2xl font-bold text-white fontalicious">
             Digi Solo
           </a>
 
@@ -29,8 +29,8 @@ const Header = () => {
             <a href="#pricing" className="text-white hover:text-[#F8A5C2] transition-colors">Pricing</a>
             <a href="#testimonials" className="text-white hover:text-[#F8A5C2] transition-colors">Testimonials</a>
             <a href="#contact" className="text-white hover:text-[#F8A5C2] transition-colors">Contact</a>
-            <button className="bg-[#F8A5C2] text-black px-6 py-2 rounded-lg hover:bg-[#F6E58D] transition-colors">
-              Book a 15-min call
+            <button className="bg-[#F8A5C2] text-black px-4 py-1.5 text-sm rounded-lg hover:bg-[#F6E58D] transition-colors">
+              Book an appointment
             </button>
           </nav>
 
