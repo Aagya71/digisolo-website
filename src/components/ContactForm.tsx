@@ -22,7 +22,7 @@ export default function ContactForm({ isOpen, onClose, selectedService = '' }: C
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-
+  
     try {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID, // Replace with your EmailJS service ID
@@ -36,7 +36,7 @@ export default function ContactForm({ isOpen, onClose, selectedService = '' }: C
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY // Replace with your EmailJS public key
       );
-
+  
       setStatus('success');
       setFormData({
         name: '',
@@ -50,10 +50,21 @@ export default function ContactForm({ isOpen, onClose, selectedService = '' }: C
         setStatus('idle');
       }, 2000);
     } catch (error) {
+      console.error("EmailJS Error:", error);
+  
+      // Check if the error object contains a `text` property (common in EmailJS errors)
+      if (error.text) {
+        console.error("Error Text from EmailJS:", error.text);
+      }
+  
+      // Log a more detailed message for debugging
+      console.error("Detailed Error Information:", JSON.stringify(error, null, 2));
+  
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }
   };
+  
 
   if (!isOpen) return null;
 
