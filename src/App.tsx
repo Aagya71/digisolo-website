@@ -14,6 +14,8 @@ import {
   Bot
 } from 'lucide-react';
 import ContactForm from './components/ContactForm';
+import AboutUs from './components/AboutUs';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -38,52 +40,8 @@ function App() {
     setIsContactFormOpen(true);
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
-      {/* Contact Form Modal */}
-      <ContactForm 
-        isOpen={isContactFormOpen}
-        onClose={() => setIsContactFormOpen(false)}
-        selectedService={selectedService}
-      />
-
-      {/* Header */}
-      <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-40"
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center space-x-2"
-            >
-              <Bot className="w-8 h-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-800">Digi Solo</span>
-            </motion.div>
-            <nav className="hidden md:flex space-x-8">
-              <motion.a whileHover={{ scale: 1.05 }} href="#" className="text-gray-600 hover:text-blue-600">Home</motion.a>
-              <motion.a whileHover={{ scale: 1.05 }} href="#" className="text-gray-600 hover:text-blue-600">About Us</motion.a>
-              <motion.a whileHover={{ scale: 1.05 }} href="#" className="text-gray-600 hover:text-blue-600">Services</motion.a>
-              <motion.a whileHover={{ scale: 1.05 }} href="#" className="text-gray-600 hover:text-blue-600">Pricing</motion.a>
-              <motion.a whileHover={{ scale: 1.05 }} href="#" className="text-gray-600 hover:text-blue-600">Contact Us</motion.a>
-            </nav>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => handleContactClick()}
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
-            >
-              Get Started Now
-            </motion.button>
-          </div>
-        </div>
-      </motion.header>
-
+  const HomePage = () => (
+    <>
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <motion.div 
@@ -96,7 +54,7 @@ function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
           >
-            Transform Your Clinic's Digital Presence with AI-Driven Solutions
+            Transform Your Small Business with AI-Powered Digital Solutions
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +62,7 @@ function App() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            Simplify operations, boost engagement, and grow your clinic with cutting-edge technology
+            Streamline operations, boost customer engagement, and grow your business with cutting-edge technology
           </motion.p>
           <motion.button 
             whileHover={{ scale: 1.05 }}
@@ -139,23 +97,23 @@ function App() {
             {[
               {
                 icon: <Globe2 className="w-12 h-12 text-blue-600" />,
-                title: "Static Web Development",
-                description: "Modern, responsive websites tailored to your clinic's needs."
+                title: "Business Website Development",
+                description: "Professional, responsive websites designed for small businesses."
               },
               {
                 icon: <MessageSquareMore className="w-12 h-12 text-blue-600" />,
-                title: "Chatbot Integration",
-                description: "Automate patient engagement with intelligent chatbot solutions."
+                title: "Customer Support Chatbot",
+                description: "24/7 automated customer service with intelligent chatbot solutions."
               },
               {
                 icon: <Brain className="w-12 h-12 text-blue-600" />,
-                title: "AI Agents",
-                description: "Enhance efficiency with virtual AI assistants for scheduling and follow-ups."
+                title: "Business AI Assistant",
+                description: "Smart AI tools for inventory, scheduling, and customer management."
               },
               {
                 icon: <Search className="w-12 h-12 text-blue-600" />,
-                title: "SEO Optimization",
-                description: "Improve visibility and attract new patients with strategic SEO."
+                title: "Local SEO Optimization",
+                description: "Improve local visibility and attract more customers."
               }
             ].map((service, index) => (
               <motion.div
@@ -191,24 +149,24 @@ function App() {
           >
             {[
               {
-                title: "Static Web Development",
-                price: "$500",
-                description: "Responsive and SEO-friendly websites for clinics."
+                title: "Business Website",
+                price: "₹25,000",
+                description: "Professional website with mobile optimization."
               },
               {
-                title: "Chatbot Integration",
-                price: "$600",
-                description: "Smart chatbot solutions for 24/7 patient support."
+                title: "Customer Support Chatbot",
+                price: "₹15,000",
+                description: "24/7 automated customer service solution."
               },
               {
-                title: "AI Agents",
-                price: "$1000",
-                description: "Advanced AI assistants for clinic automation."
+                title: "Business AI Assistant",
+                price: "₹50,000",
+                description: "Comprehensive AI tools for business automation."
               },
               {
-                title: "SEO Optimization",
-                price: "$300",
-                description: "Comprehensive SEO strategy and implementation."
+                title: "Local SEO Package",
+                price: "₹7,000",
+                description: "Targeted local search optimization strategy."
               }
             ].map((plan, index) => (
               <motion.div
@@ -250,16 +208,32 @@ function App() {
                 <span className="text-2xl font-bold">Digi Solo</span>
               </div>
               <p className="text-gray-400">
-                Transforming dental clinics with innovative digital solutions.
+                Empowering small businesses with innovative digital solutions.
               </p>
             </div>
             <div>
               <h4 className="text-lg font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li><motion.a whileHover={{ x: 5 }} href="#" className="text-gray-400 hover:text-white">About Us</motion.a></li>
-                <li><motion.a whileHover={{ x: 5 }} href="#" className="text-gray-400 hover:text-white">Services</motion.a></li>
-                <li><motion.a whileHover={{ x: 5 }} href="#" className="text-gray-400 hover:text-white">Contact Us</motion.a></li>
-                <li><motion.a whileHover={{ x: 5 }} href="#" className="text-gray-400 hover:text-white">Privacy Policy</motion.a></li>
+                <li>
+                  <Link to="/about" className="text-gray-400 hover:text-white">
+                    <motion.span whileHover={{ x: 5 }}>About Us</motion.span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#services" className="text-gray-400 hover:text-white">
+                    <motion.span whileHover={{ x: 5 }}>Services</motion.span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#contact" className="text-gray-400 hover:text-white">
+                    <motion.span whileHover={{ x: 5 }}>Contact Us</motion.span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacy" className="text-gray-400 hover:text-white">
+                    <motion.span whileHover={{ x: 5 }}>Privacy Policy</motion.span>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -298,14 +272,14 @@ function App() {
               <div className="flex space-x-4">
                 <motion.a 
                   whileHover={{ scale: 1.2 }} 
-                  href="#" 
+                  href="https://www.instagram.com/yatowants5yen?igsh=MWR0aDY5bWxtdmN3dQ==" 
                   className="text-gray-400 hover:text-white"
                 >
                   <Instagram className="w-6 h-6" />
                 </motion.a>
                 <motion.a 
                   whileHover={{ scale: 1.2 }} 
-                  href="#" 
+                  href="https://www.linkedin.com/in/resab-chettri-24b0341b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                   className="text-gray-400 hover:text-white"
                 >
                   <Linkedin className="w-6 h-6" />
@@ -325,7 +299,72 @@ function App() {
           </div>
         </motion.div>
       </footer>
-    </div>
+    </>
+  );
+
+  return (
+    <Router>
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+        {/* Contact Form Modal */}
+        <ContactForm 
+          isOpen={isContactFormOpen}
+          onClose={() => setIsContactFormOpen(false)}
+          selectedService={selectedService}
+        />
+
+        {/* Header */}
+        <motion.header 
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-40"
+        >
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center space-x-2"
+              >
+                <Bot className="w-8 h-8 text-blue-600" />
+                <Link to="/" className="text-2xl font-bold text-gray-800">Digi Solo</Link>
+              </motion.div>
+              <nav className="hidden md:flex space-x-8">
+                <Link to="/" className="text-gray-600 hover:text-blue-600">
+                  <motion.span whileHover={{ scale: 1.05 }}>Home</motion.span>
+                </Link>
+                <Link to="/about" className="text-gray-600 hover:text-blue-600">
+                  <motion.span whileHover={{ scale: 1.05 }}>About Us</motion.span>
+                </Link>
+                <Link to="/#services" className="text-gray-600 hover:text-blue-600">
+                  <motion.span whileHover={{ scale: 1.05 }}>Services</motion.span>
+                </Link>
+                <Link to="/#pricing" className="text-gray-600 hover:text-blue-600">
+                  <motion.span whileHover={{ scale: 1.05 }}>Pricing</motion.span>
+                </Link>
+                <Link to="/#contact" className="text-gray-600 hover:text-blue-600">
+                  <motion.span whileHover={{ scale: 1.05 }}>Contact Us</motion.span>
+                </Link>
+              </nav>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleContactClick()}
+                className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+              >
+                Get Started Now
+              </motion.button>
+            </div>
+          </div>
+        </motion.header>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
